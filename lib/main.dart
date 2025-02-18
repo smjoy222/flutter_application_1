@@ -1,51 +1,81 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const Lab5());
+  runApp(const MyApp());
 }
 
-class Lab5 extends StatelessWidget {
-  const Lab5({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Basic UI",
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("basic UI"),
-          backgroundColor: Colors.blue[400],
-          centerTitle: true,
-        ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-              Icon(
-                Icons.star,
-                size: 50,
-              ),
-               Icon(
-                Icons.star,
-                size: 50,
-              ),
+      title: 'Fancy Icon App',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const MyHomePage(title: 'Shoe widget'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
               Row(
-                children: [
-                  Icon(
-                    Icons.star,
-                    size: 50,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: const [
+                  Text(
+                    '50\% OFF',
+                    style: TextStyle(fontSize: 20),
                   ),
-                  Icon(
-                    Icons.star,
-                    size: 50,
+                  Icon(Icons.favorite)
+                ],
+              ),
+              const SizedBox(height: 20),
+              
+              const SizedBox(height: 20),
+              const Text(
+                'Nike Air Shoes',
+                style: TextStyle(fontSize: 18),
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: const [
+                  Text(
+                    '\$450  ',
+                    style: TextStyle(fontSize: 16),
                   ),
-                  Icon(
-                    Icons.star,
-                    size: 50,
+                  Text(
+                    '\$500',
+                    style: TextStyle(
+                      fontSize: 16,
+                      decoration: TextDecoration.lineThrough,
+                    ),
                   ),
                 ],
               ),
             ],
+          ),
         ),
       ),
     );
