@@ -11,30 +11,41 @@ class Lab5 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: "Basic UI",
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text("basic UI"),
-            backgroundColor: Colors.blue[400],
-            centerTitle: true,
-          ),
-          body: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Container(
-              height: double.infinity,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: List.generate(
-                  100,
-                  (index) => Icon(
-                    Icons.star,
-                    size: index.toDouble(),
-                    color: Colors.yellow,
-                  ),
+      title: "Basic UI",
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("basic UI"),
+          backgroundColor: Colors.blue[400],
+          centerTitle: true,
+        ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+              Icon(
+                Icons.star,
+                size: 50,
               ),
-            ),
-          ),
+               Icon(
+                Icons.star,
+                size: 50,
+              ),
+              Row(
+                children: [
+                  Icon(
+                    Icons.star,
+                    size: 50,
+                  ),
+                  Icon(
+                    Icons.star,
+                    size: 50,
+                  ),
+                  Icon(
+                    Icons.star,
+                    size: 50,
+                  ),
+                ],
+              ),
+            ],
         ),
       ),
     );
